@@ -1,6 +1,12 @@
-/* eslint-disable for-direction */
-// Create a request variable and assign a new XMLHttpRequest object to it.
-// eslint-disable-next-line getter-return
+const app = document.getElementById('root') // this is a div in the body of the index.html
+const logo = document.createElement('img') // this creates img element space in the DOM
+logo.src = 'logo.png' //this sets the source of the image to be the pic we have on file
+const container = document.createElement('div') // this creates another div, container, to which we ascribe a class
+container.setAttribute('class', 'container') // we set the div's class as container
+app.appendChild(logo)  // this is how we place the logo and container into the app 'root'
+app.appendChild(container)
+
+// creates a new request varibale and sets it to be an XMLHttpRequest
 var request = new XMLHttpRequest()
 
 // Open a new connection, using the GET request on the URL endpoint
@@ -35,16 +41,11 @@ data.forEach(movie => {
 
 })
 } else {
-    console.log('error')
+    const errorMessage = document.createElement('marquee')
+    errorMessage.textContent = `Gah, it's not working!`
+    app.appendChild(errorMessage)
 }
 }
 
 request.send()
 
-const app = document.getElementById('root') // this is a div in the body of the index.html
-const logo = document.createElement('img') // this creates img element space in the DOM
-logo.src = 'logo.png' //this sets the source of the image to be the pic we have on file
-const container = document.createElement('div') // this creates another div, container, to which we ascribe a class
-container.setAttribute('class', 'container') // we set the div's class as container
-app.appendChild(logo)  // this is how we place the logo and container into the app 'root'
-app.appendChild(container)
